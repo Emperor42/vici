@@ -1,7 +1,7 @@
-# vici
+# VICI
 
 IN DEVELOPMENT
 
-Integration system which combines access to many tools for various business purposes, allows end users to wrap and integrate web based tools with custom websites cleanly and easily
+Various Internet and Cloud Integration (VICI): Allows for the easy setup of cloud based and internet based services into a single location 
 
 Integrates well with VENI and VIDI
