@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azzurro Platform</title>
+    <script src="vici/vici.js"></script>
+    <link rel="stylesheet" type="text/css" href="vici/vici.css">
+  </head>
+  <body>
+    <nav>
+      <!--Nav component with basic menu and moveout and show/hide for the header section-->
+    </nav>
+    <header>
+      <!--The header allows for form elemenets to be loaded in programatically-->
+      <details>
+        <summary>Avaliable Forms</summary>
+        <button>Add Core Form</button>
+      </details>
+    </header>
+    <section>
+      <!--Below is an example, should be commented later-->
+      <div id="form-core-1" class="card">
+        <form>
+          <input type="text" id="head" name="head" value="head"/>
+          <input type="text" id="body" name="body" value="body"/>
+          <input type="text" id="tail" name="tail" value="tail"/>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <!--Generic footer for setttings and tools and search, not 100% sure what should go here-->
+      <details>
+        <summary>New Form Creation</summary>
+        <button id="formCreationSubmit">Include Form Type</button>
+        <button id="formCreationClear">Clear Form</button>
+        <article id="formCreationBuffer"></article>
+        <form id="formCreation">
+          <input type="text" id="formType" name="type" value="type"/>
+          <input type="text" id="formName" name="name" value="name"/>
+          <input type="text" id="formId" name="id" value="form"/>
+          <input type="text" id="formClass" name="class" value="class"/>
+          <input type="submit" value="Add Field" />
+          <input type="reset" value="Values" />
+        </form>
+      </details>
+    </footer>
+  </body>
+</html>
