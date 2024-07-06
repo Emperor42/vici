@@ -1,4 +1,96 @@
-.card {
-        border: solid black 5px;
-        background-color: gray;
+html {
+  height: 100%;
+  margin: 0;
+  padding:0;
+  width: 100%;
+}
+
+body {
+        background-color: aqua;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        max-width: fit-content;
+}
+
+header {
+        position: fixed;
+        height: fit-content;
+        background-color: cornflowerblue;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        margin-top: 0px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        z-index: 10;
+}
+
+footer {
+        position: fixed;
+        height: fit-content;
+        background-color: cornflowerblue;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+        margin-top: 1rem;
+        padding: 1rem;
+        z-index: 10;
+}
+
+details{
+        display: block;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        width: fit-content;
+        padding:1rem;
+        background-color: antiquewhite;
+}
+
+section {
+        position: absolute;
+        flex-grow: 1;
+        background-color: white;
+        margin:0px;
+        padding:0px;
+        margin-top: 3rem;
+        margin-bottom:3rem;
+        width:100%;
+        height:auto
+}
+
+article {
+        position: fixed;
+        height: fit-content;
+        width: fit-content;
+        margin: 0px;
+        padding: 0px;
+        background-color: rgba(0,0,0,0);
+}
+
+article details {
+        height: fit-content;
+        width: auto;
+        min-width:fit-content;
+        min-height: fit-content;
+        max-height: fit-content;
+        position: static;
+        background-color: cornflowerblue;
+}
+
+article form {
+        height: fit-content;
+        width: fit-content;
+        padding: 1rem;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        overflow:hidden;
+        background-color: antiquewhite;
+}
+
+article form input {
+        width: 100%;
+}
+
+.moving {
+        border: dashed cornflowerblue
 }
