@@ -42,7 +42,7 @@ function coreFormBasics(){
     const neededArticle = document.createElement("article");
     neededArticle.style = "left:10rem;top:10rem;z-index:1;";
     const articleForm = document.createElement("form");
-    articleForm.style = "width:10rem;height:10rem;";
+    articleForm.style = "width:10rem;height:fit-content;";
     const articleFormInput1 = document.createElement("input");
     articleFormInput1.type = "text";
     articleFormInput1.name = "head";
@@ -144,7 +144,7 @@ function addNewForm(event){
         const formClone = menuFound.cloneNode(true);
         const neededArticle = document.createElement("article");
         neededArticle.style = "left:10rem;top:10rem;z-index:1;";
-        formClone.style = "width:10rem;height:10rem;";
+        formClone.style = "width:10rem;height:fit-content;";
         neededArticle.appendChild(formClone);
         const formOptionName = document.getElementById("formDisplayName").value;
         if(formOptionName==""){
