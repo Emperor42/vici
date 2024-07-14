@@ -11,6 +11,7 @@ body {
         flex-direction: column;
         background-color: white;
         max-width: fit-content;
+        max-height: fit-content;
 }
 
 header {
