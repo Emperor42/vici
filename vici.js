@@ -10,11 +10,6 @@ function createOptionsForCards(coreId){
     moveButton.name = coreId;
     moveButton.setAttribute("onclick", "moveRecord(this.name)");
     mainDetail.appendChild(moveButton);
-    const saveButton = document.createElement("button");
-    saveButton.appendChild(document.createTextNode("Sync"));
-    saveButton.name = coreId;
-    saveButton.setAttribute("onclick", "saveRecord(this.name)");
-    mainDetail.appendChild(saveButton);
     const killButton = document.createElement("button");
     killButton.appendChild(document.createTextNode("Delete"));
     killButton.name = coreId;
@@ -74,17 +69,7 @@ function coreFormBasics(){
     articleFormInput1.type = "text";
     articleFormInput1.name = "head";
     articleFormInput1.value = "head";
-    const articleFormInput2 = document.createElement("input");
-    articleFormInput2.type = "text";
-    articleFormInput2.name = "body";
-    articleFormInput2.value = "body";
-    const articleFormInput3 = document.createElement("input");
-    articleFormInput3.type = "text";
-    articleFormInput3.name = "tail";
-    articleFormInput3.value = "tail";
     articleForm.appendChild(articleFormInput1);
-    articleForm.appendChild(articleFormInput2);
-    articleForm.appendChild(articleFormInput3);
     neededArticle.appendChild(articleForm);
     return neededArticle;
 }
@@ -130,7 +115,7 @@ function createNewForm(event){
 function addFormField(event){
     console.log("addFormField");
     console.log(event);
-    const inputField = document.createElement("input");
+    let inputField = document.createElement("input");
     //the related fields
     const typeInput = document.getElementById("formType");
     const nameInput = document.getElementById("formName");
@@ -248,20 +233,6 @@ function dragElement(elmnt) {
     }
   }
 
-
-
-/**
- * Function to resize the record
- * @param {*} event 
- */
-function saveRecord(event){
-    console.log("sizeRecord");
-    console.log(event);
-    console.log(document.getElementById(event).children[0].children);
-    alert("Syncing records has not yet been implemented, to please build out the functionality");
-}
-
-
 /**
  * Function to delete the record
  * @param {*} event 
@@ -356,14 +327,6 @@ function RRecord(event){
     let widthValue= parseInt(document.getElementById(event).style.left);
     document.getElementById(event).style.left = (widthValue+convertRemToPixels(1))+"px";
     }
-}
-/**
- * On change operation for the given fields
- * @param {*} event 
- */
-function fieldChanges(event){
-    console.log("fieldChanges");
-    console.log(event);
 }
 
 /**
