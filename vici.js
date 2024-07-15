@@ -4,11 +4,14 @@ function createOptionsForCards(coreId){
     const mainDetail = document.createElement("details");
     const summaryElement = document.createElement('summary');
     summaryElement.appendChild(document.createTextNode("Options"));
+    mainDetail.appendChild(summaryElement);
     const moveId = coreId;
     const saveId = coreId;
     const killId = coreId;
     const pullId = coreId;
     const pushId = coreId;
+    const moreId = coreId;
+    const lessId = coreId;
     const moveButton = document.createElement("button");
     moveButton.appendChild(document.createTextNode("Move"));
     moveButton.name = moveId;
@@ -34,7 +37,16 @@ function createOptionsForCards(coreId){
     pushButton.name = pushId;
     pushButton.setAttribute("onclick", "pushRecord(this.name)");
     mainDetail.appendChild(pushButton);
-    mainDetail.appendChild(summaryElement);
+    const moreButton = document.createElement("button");
+    moreButton.appendChild(document.createTextNode("Grow"));
+    moreButton.name = moreId;
+    moreButton.setAttribute("onclick", "moreRecord(this.name)");
+    mainDetail.appendChild(moreButton);
+    const lessButton = document.createElement("button");
+    lessButton.appendChild(document.createTextNode("Shrink"));
+    lessButton.name = lessId;
+    lessButton.setAttribute("onclick", "lessRecord(this.name)");
+    mainDetail.appendChild(lessButton);
     return mainDetail;
 }
 
@@ -261,6 +273,26 @@ function pushRecord(event){
     console.log("pushRecord");
     console.log(event);
     document.getElementById(event).style.zIndex--;
+}
+/**
+ * Function to bring the record forward
+ * @param {*} event 
+ */
+function moreRecord(event){
+    console.log("pullRecord");
+    console.log(event);
+    let widthValue= parseInt(document.getElementById(event).children[0].style.width);
+    document.getElementById(event).children[0].style.width = (widthValue+1)+"rem";
+}
+/**
+ * Function to bring the record back
+ * @param {*} event 
+ */
+function lessRecord(event){
+    console.log("pullRecord");
+    console.log(event);
+    let widthValue= parseInt(document.getElementById(event).children[0].style.width);
+    document.getElementById(event).children[0].style.width = (widthValue-1)+"rem";
 }
 /**
  * On change operation for the given fields
