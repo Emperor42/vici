@@ -5,48 +5,63 @@ function createOptionsForCards(coreId){
     const summaryElement = document.createElement('summary');
     summaryElement.appendChild(document.createTextNode("Options"));
     mainDetail.appendChild(summaryElement);
-    const moveId = coreId;
-    const saveId = coreId;
-    const killId = coreId;
-    const pullId = coreId;
-    const pushId = coreId;
-    const moreId = coreId;
-    const lessId = coreId;
     const moveButton = document.createElement("button");
     moveButton.appendChild(document.createTextNode("Move"));
-    moveButton.name = moveId;
+    moveButton.name = coreId;
     moveButton.setAttribute("onclick", "moveRecord(this.name)");
     mainDetail.appendChild(moveButton);
     const saveButton = document.createElement("button");
     saveButton.appendChild(document.createTextNode("Sync"));
-    saveButton.name = saveId;
+    saveButton.name = coreId;
     saveButton.setAttribute("onclick", "saveRecord(this.name)");
     mainDetail.appendChild(saveButton);
     const killButton = document.createElement("button");
     killButton.appendChild(document.createTextNode("Delete"));
-    killButton.name = killId;
+    killButton.name = coreId;
     killButton.setAttribute("onclick", "killRecord(this.name)");
     mainDetail.appendChild(killButton);
     const pullButton = document.createElement("button");
     pullButton.appendChild(document.createTextNode("Front"));
-    pullButton.name = pullId;
+    pullButton.name = coreId;
     pullButton.setAttribute("onclick", "pullRecord(this.name)");
     mainDetail.appendChild(pullButton);
     const pushButton = document.createElement("button");
     pushButton.appendChild(document.createTextNode("Back"));
-    pushButton.name = pushId;
+    pushButton.name = coreId;
     pushButton.setAttribute("onclick", "pushRecord(this.name)");
     mainDetail.appendChild(pushButton);
+    //GROW SHRINK
     const moreButton = document.createElement("button");
     moreButton.appendChild(document.createTextNode("Grow"));
-    moreButton.name = moreId;
+    moreButton.name = coreId;
     moreButton.setAttribute("onclick", "moreRecord(this.name)");
     mainDetail.appendChild(moreButton);
     const lessButton = document.createElement("button");
     lessButton.appendChild(document.createTextNode("Shrink"));
-    lessButton.name = lessId;
+    lessButton.name = coreId;
     lessButton.setAttribute("onclick", "lessRecord(this.name)");
     mainDetail.appendChild(lessButton);
+    //MOVEMENT BUTTONS
+    const movUButton = document.createElement("button");
+    movUButton.appendChild(document.createTextNode("Up"));
+    movUButton.name = coreId;
+    movUButton.setAttribute("onclick", "URecord(this.name)");
+    mainDetail.appendChild(movUButton);
+    const movDButton = document.createElement("button");
+    movDButton.appendChild(document.createTextNode("Down"));
+    movDButton.name = coreId;
+    movDButton.setAttribute("onclick", "DRecord(this.name)");
+    mainDetail.appendChild(movDButton);
+    const movLButton = document.createElement("button");
+    movLButton.appendChild(document.createTextNode("Left"));
+    movLButton.name = coreId;
+    movLButton.setAttribute("onclick", "LRecord(this.name)");
+    mainDetail.appendChild(movLButton);
+    const movRButton = document.createElement("button");
+    movRButton.appendChild(document.createTextNode("Right"));
+    movRButton.name = coreId;
+    movRButton.setAttribute("onclick", "RRecord(this.name)");
+    mainDetail.appendChild(movRButton);
     return mainDetail;
 }
 
@@ -243,7 +258,7 @@ function saveRecord(event){
     console.log("sizeRecord");
     console.log(event);
     console.log(document.getElementById(event).children[0].children);
-    alert("Syncing records has not yet been implemented");
+    alert("Syncing records has not yet been implemented, to please build out the functionality");
 }
 
 
@@ -295,10 +310,67 @@ function lessRecord(event){
     document.getElementById(event).children[0].style.width = (widthValue-1)+"rem";
 }
 /**
+ * Function to bring the record forward
+ * @param {*} event 
+ */
+function URecord(event){
+    console.log("pullRecord");
+    console.log(event);
+    if(document.getElementById(event).classList.contains("moving")){
+    let widthValue= parseInt(document.getElementById(event).style.top);
+    document.getElementById(event).style.top = (widthValue-convertRemToPixels(1))+"px";
+    }
+}
+/**
+ * Function to bring the record back
+ * @param {*} event 
+ */
+function DRecord(event){
+    console.log("pullRecord");
+    console.log(event);
+    if(document.getElementById(event).classList.contains("moving")){
+    let widthValue= parseInt(document.getElementById(event).style.top);
+    document.getElementById(event).style.top = (widthValue+convertRemToPixels(1))+"px";
+    }
+}
+/**
+ * Function to bring the record forward
+ * @param {*} event 
+ */
+function LRecord(event){
+    console.log("pullRecord");
+    console.log(event);
+    if(document.getElementById(event).classList.contains("moving")){
+    let widthValue= parseInt(document.getElementById(event).style.left);
+    document.getElementById(event).style.left = (widthValue-convertRemToPixels(1))+"px";
+    }
+}
+/**
+ * Function to bring the record back
+ * @param {*} event 
+ */
+function RRecord(event){
+    console.log("pullRecord");
+    console.log(event);
+    if(document.getElementById(event).classList.contains("moving")){
+    let widthValue= parseInt(document.getElementById(event).style.left);
+    document.getElementById(event).style.left = (widthValue+convertRemToPixels(1))+"px";
+    }
+}
+/**
  * On change operation for the given fields
  * @param {*} event 
  */
 function fieldChanges(event){
     console.log("fieldChanges");
     console.log(event);
+}
+
+/**
+ * Helper function to convert to pixels
+ * @param rem 
+ * @returns 
+ */
+function convertRemToPixels(rem) {    
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
