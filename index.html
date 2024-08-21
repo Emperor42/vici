@@ -9,7 +9,11 @@
     <link rel="icon" type="image/x-icon" href="blue.jpg">
   </head>
   <body>
-    <nav id="platform-nav">
+    <nav>
+      
+    </nav>
+    <header id="platform-header">
+      <!--The header allows for form elemenets to be loaded in programatically-->
       <details id="formSelectionMenu">
         <summary>Avaliable Forms</summary>
         <button id="form-core" onclick="createNewForm(this.id)">Add Core Form</button>
@@ -29,9 +33,13 @@
         </form>
         <form id="formCreationBuffer"></form>
       </details>
-    </nav>
+    </header>
     <section id="platform-content">
       <!--JS will import these-->
     </section>
+    <footer id="platform-footer">
+      <!--Generic footer for setttings and tools and search, not 100% sure what should go here-->
+      <a href="https://github.com/Emperor42/vici">GitHub Link for Project - Copyright 2024 VICI</a>
+    </footer>
   </body>
 </html>
