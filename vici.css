@@ -3,6 +3,7 @@ html {
   margin: 0;
   padding:0;
   width: 100%;
+  border: green solid 1px;
 }
 
 body {
@@ -95,3 +96,10 @@ article form input {
 .moving {
         border: dashed cornflowerblue
 }
+
+nav {
+        display: inline-flex;
+        gap: 1rem;
+        background-color: cornflowerblue;
+}
+
