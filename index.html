@@ -3,24 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Azzurro Platform</title>
+    <title>VICI</title>
     <script src="vici.js"></script>
     <link rel="stylesheet" type="text/css" href="vici.css">
-    <link rel="icon" type="image/x-icon" href="../data/icon.png">
+    <link rel="icon" type="image/x-icon" href="blue.jpg">
   </head>
   <body>
-    <header id="platform-header">
-      <!--The header allows for form elemenets to be loaded in programatically-->
+    <nav id="platform-nav">
       <details id="formSelectionMenu">
         <summary>Avaliable Forms</summary>
         <button id="form-core" onclick="createNewForm(this.id)">Add Core Form</button>
       </details>
-    </header>
-    <section id="platform-content">
-      <!--JS will import these-->
-    </section>
-    <footer id="platform-footer">
-      <!--Generic footer for setttings and tools and search, not 100% sure what should go here-->
       <details id="formCreationMenu">
         <summary>New Form Creation</summary>
         <input type="text" id="formDisplayName" name="formDisplayName" value=""/>
@@ -36,6 +29,9 @@
         </form>
         <form id="formCreationBuffer"></form>
       </details>
-    </footer>
+    </nav>
+    <section id="platform-content">
+      <!--JS will import these-->
+    </section>
   </body>
 </html>
