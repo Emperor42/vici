@@ -195,7 +195,6 @@ function moveRecord(event){
 
 function dragElement(elmnt) {
     console.log(elmnt);
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if(elmnt.classList.contains("moving")){
         if (document.getElementById(elmnt.id)) {
         // if present, the header is where you move the DIV from:
@@ -222,9 +221,33 @@ function dragElement(elmnt) {
         console.log(e);
       e = e || window.event;
       e.preventDefault();
+
+        const innerHeight = window.innerHeight;
+        const innerWidth = window.innerWidth;
+
       // set the element's new position:
-      elmnt.style.top = (e.clientY-(elmnt.clientHeight))+"px";
-      elmnt.style.left = (e.clientX-(elmnt.clientWidth))+"px";
+      var topVal = ((e.clientY-(elmnt.clientHeight))%innerHeight);
+      var leftVal = ((e.clientX-(elmnt.clientWidth))%innerWidth);
+      var rightVal = ((e.clientX)%innerWidth);
+      if (topVal<0){
+        topVal=0;
+      }
+      if (topVal>innerHeight){
+        topVal=innerHeight;
+      }
+        if (leftVal<0){
+        leftVal=0;
+      }
+      if (leftVal>innerWidth){
+        leftVal=innerWidth;
+      }
+      elmnt.style.top = topVal+"px";
+      elmnt.style.left = leftVal+"px";
+      if (rightVal>innerWidth){
+        leftVal = innerWidth-elmnt.clientWidth
+        elmnt.style.left = leftVal+"px";
+      }
+
     }
   
     function closeDragElement() {
